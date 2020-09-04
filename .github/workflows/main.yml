@@ -31,7 +31,7 @@ jobs:
           Coding_Username: ${secrets.USERNAME_CODING} 
           commit_message: ${github.event.head_commit.message}
         run: | 
-          export message=$(git log --pretty=format:"%s" -1)
+          export message=$(git log --pretty=format:"%s" -1) 
           rm CNAME
           rm -rf .github
           rm -rf .git
