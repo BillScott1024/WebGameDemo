@@ -44,5 +44,5 @@ jobs:
           git remote set-url origin https://e.coding.net/${Coding_Username}/webgamedemo/webgamedemo.git
           git add -A
           git commit -m "$message"
-          git push --force --quiet "https://extingstudio1:${Coding_Token}@extingstudio1.coding.net/extingstudio1/${Coding_Project_Name}.git" master:master
+          git push --force --quiet "https://extingstudio1:${secrets.TOKEN_CODINGAPI}@extingstudio1.coding.net/extingstudio1/${secrets.PROJECT_NAME}.git" master:master
 
