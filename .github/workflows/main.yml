@@ -25,8 +25,8 @@ jobs:
           git config --global user.name 'Akimoto' 
           git config --global user.email 'jaxsonwang@foxmail.com'
       - name: Deploy To Coding Pages
-        env: 
-          Coding_Pages: e.coding.net/webgamedemo/webgamedemo.coding.me.git
+        env:
+          Coding_Project_Name: ${ secrets.PROJECT_NAME}
           Coding_Token: ${{ secrets.TOKEN_CODINGAPI }}
           Coding_Username: ${{ secrets.USERNAME_CODING }} 
           commit_message: ${{ github.event.head_commit.message }}
@@ -35,14 +35,14 @@ jobs:
           rm CNAME
           rm -rf .github
           rm -rf .git
-          git clone https://${Coding_Username}:${Coding_Token}@${Coding_Pages} coding_dir
+          git clone https://${Coding_Username}:${Coding_Token}@${Coding_Username}.coding.net/${Coding_Username}/${Coding_Project_Name}.git
+          git clone git@e.coding.net:${Coding_Username}/${Coding_Project_Name}/${Coding_Project_Name}.git coding_dir
           cd coding_dir && mv .git ../ && cd ../ && rm -rf coding_dir
           git config --local user.email "jaxsonwang@foxmail.com"
           git config --local user.name "Akimoto"
           git config core.filemode false
-          git remote set-url origin https://${Coding_Pages}
+          git remote set-url origin https://e.coding.net/${Coding_Username}/${Coding_Project_Name}/${Coding_Project_Name}.git
           git add .
-
           git commit -F ${commit_message}
-          git push --force --quiet "https://${Coding_Username}:${Coding_Token}@${Coding_Pages}" master:master
+          git push --force --quiet "https://${Coding_Username}:${Coding_Token}@${Coding_Username}.coding.net/${Coding_Username}/${Coding_Project_Name}.git" master:master
 
