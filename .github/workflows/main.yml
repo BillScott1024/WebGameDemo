@@ -35,7 +35,7 @@ jobs:
           rm CNAME
           rm -rf .github
           rm -rf .git
-          git clone https://${Coding_Username}:${Coding_Token}@${Coding_Username}.coding.net/${Coding_Username}/${Coding_Project_Name}.git coding_dir
+          git clone "https://${Coding_Username}:${Coding_Token}@${Coding_Username}.coding.net/${Coding_Username}/${Coding_Project_Name}.git" coding_dir
           cd coding_dir && mv .git ../ && cd ../ && rm -rf coding_dir
           git config --local user.email "jaxsonwang@foxmail.com"
           git config --local user.name "Akimoto"
