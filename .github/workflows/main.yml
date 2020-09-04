@@ -41,7 +41,7 @@ jobs:
           git config --local user.name "Akimoto"
           git config core.filemode false
           git remote set-url origin https://e.coding.net/extingstudio1/webgamedemo/webgamedemo.git
-          git add .
+          git add -A
           git commit -F ${commit_message}
           git push --force --quiet "https://${Coding_Username}:${Coding_Token}@${Coding_Username}.coding.net/${Coding_Username}/${Coding_Project_Name}.git" master:master
 
