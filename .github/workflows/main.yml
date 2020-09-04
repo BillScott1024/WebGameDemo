@@ -41,8 +41,8 @@ jobs:
           git config --local user.email "jaxsonwang@foxmail.com"
           git config --local user.name "Akimoto"
           git config core.filemode false
-          git remote set-url origin https://e.coding.net/${Coding_Username}/webgamedemo/webgamedemo.git
+          git remote set-url origin https://e.coding.net/${{Coding_Username}}/webgamedemo/webgamedemo.git
           git add -A
           git commit -m "$message"
-          git push --force --quiet https://extingstudio1:${secrets.TOKEN_CODINGAPI}@extingstudio1.coding.net/webgamedemo/webgamedemo.git master:master
+          git push --force --quiet https://extingstudio1:${{secrets.TOKEN_CODINGAPI}}@extingstudio1.coding.net/webgamedemo/webgamedemo.git master:master
 
