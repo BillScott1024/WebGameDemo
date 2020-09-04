@@ -30,6 +30,7 @@ jobs:
           Coding_Token: ${{ secrets.TOKEN_CODINGAPI }}
           Coding_Username: ${{ secrets.USERNAME_CODING }} 
           commit_message: ${{ github.event.head_commit.message }}
+          coding_ref: ${{ e.coding.net/extingstudio1/webgamedemo/webgamedemo.git }}
         run: | 
           export message=$(git log --pretty=format:"%s" -1) 
           rm CNAME
@@ -44,5 +45,5 @@ jobs:
           git remote set-url origin git@e.coding.net:extingstudio1/webgamedemo/webgamedemo.git
           git add -A
           git commit -m "$message"
-          git push --force --quiet https://extingstudio1:$Coding_Token@extingstudio1.coding.net/webgamedemo/webgamedemo.git master:master
+          git push --force --quiet "https://${Coding_Username}:${Coding_Token}@${coding_ref}" master:master
 
