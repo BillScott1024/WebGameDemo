@@ -31,6 +31,7 @@ jobs:
           Coding_Username: ${{ secrets.USERNAME_CODING }} 
           commit_message: ${{ github.event.head_commit.message }}
         run: | 
+          git checkout -b master
           git add . 
           git commit -F ${commit_message}
           git push --force --quiet "https://${Coding_Username}:${Coding_Token}@${Coding_Pages}" master:master
