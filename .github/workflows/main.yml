@@ -24,7 +24,9 @@ jobs:
         run: |
           git config --global user.name 'Akimoto' 
           git config --global user.email 'jaxsonwang@foxmail.com'
-          
+      - name: Get Latest Commit Message
+        run: |
+          git log --pretty=format:"%s from Github Actions at `date +"%Y-%m-%d %H:%M:%S"`" --date=short -n 1  > commit-message.log
       - name: Deploy To Coding Pages
         env: 
           Coding_Pages: e.coding.net/extingstudio1/extingstudio1.coding.me.git
