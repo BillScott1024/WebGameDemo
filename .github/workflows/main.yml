@@ -26,7 +26,7 @@ jobs:
           git config --global user.email 'jaxsonwang@foxmail.com'
       - name: Deploy To Coding Pages
         env: 
-          Coding_Pages: e.coding.net/extingstudio1/extingstudio1.coding.me.git
+          Coding_Pages: e.coding.net/webgamedemo/webgamedemo.coding.me.git
           Coding_Token: ${{ secrets.TOKEN_CODINGAPI }}
           Coding_Username: ${{ secrets.USERNAME_CODING }} 
           commit_message: ${{ github.event.head_commit.message }}
