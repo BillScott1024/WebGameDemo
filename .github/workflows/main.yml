@@ -31,8 +31,18 @@ jobs:
           Coding_Username: ${{ secrets.USERNAME_CODING }} 
           commit_message: ${{ github.event.head_commit.message }}
         run: | 
-          git init
-          git add . 
+
+          rm CNAME
+          rm -rf .github
+          rm -rf .git
+          git clone https://${Coding_Username}:${Coding_Token}@${Coding_Pages} coding_dir
+          cd coding_dir && mv .git ../ && cd ../ && rm -rf coding_dir
+          git config --local user.email "jaxsonwang@foxmail.com"
+          git config --local user.name "Akimoto"
+          git config core.filemode false
+          git remote set-url origin https://${Coding_Pages}
+          git add .
+
           git commit -F ${commit_message}
           git push --force --quiet "https://${Coding_Username}:${Coding_Token}@${Coding_Pages}" master:master
 
