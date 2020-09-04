@@ -26,10 +26,10 @@ jobs:
           git config --global user.email 'jaxsonwang@foxmail.com'
       - name: Deploy To Coding Pages
         env:
-          Coding_Project_Name: ${{secrets.PROJECT_NAME}}
-          Coding_Token: ${{secrets.TOKEN_CODINGAPI}}
-          Coding_Username: ${{secrets.USERNAME_CODING}} 
-          commit_message: ${{github.event.head_commit.message}}
+          Coding_Project_Name: ${{ secrets.PROJECT_NAME }}
+          Coding_Token: ${{ secrets.TOKEN_CODINGAPI }}
+          Coding_Username: ${{ secrets.USERNAME_CODING }} 
+          commit_message: ${{ github.event.head_commit.message }}
         run: | 
           export message=$(git log --pretty=format:"%s" -1) 
           rm CNAME
@@ -44,5 +44,5 @@ jobs:
           git remote set-url origin https://e.coding.net/${{Coding_Username}}/webgamedemo/webgamedemo.git
           git add -A
           git commit -m "$message"
-          git push --force --quiet https://extingstudio1:${{secrets.TOKEN_CODINGAPI}}@extingstudio1.coding.net/webgamedemo/webgamedemo.git master:master
+          git push --force --quiet https://extingstudio1:${{Coding_Token}}@extingstudio1.coding.net/webgamedemo/webgamedemo.git master:master
 
