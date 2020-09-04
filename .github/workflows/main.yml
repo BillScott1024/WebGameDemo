@@ -5,7 +5,7 @@ name: Build Repo To Coding
 # events but only for the master branch
 on:
   push:
-    branches: [ coding ]
+    branches: [ master ]
 #   pull_request:
 #     branches: [ master ]
 
