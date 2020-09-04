@@ -31,7 +31,7 @@ jobs:
           Coding_Username: ${secrets.USERNAME_CODING} 
           commit_message: ${github.event.head_commit.message}
         run: | 
-
+          export message=$(git log --pretty=format:"%s" -1)
           rm CNAME
           rm -rf .github
           rm -rf .git
@@ -43,6 +43,6 @@ jobs:
           git config core.filemode false
           git remote set-url origin https://e.coding.net/${Coding_Username}/webgamedemo/webgamedemo.git
           git add -A
-          git commit -F ${commit_message}
+          git commit -m "$message"
           git push --force --quiet "https://${Coding_Username}:${Coding_Token}@${Coding_Username}.coding.net/${Coding_Username}/${Coding_Project_Name}.git" master:master
 
