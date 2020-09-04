@@ -36,7 +36,7 @@ jobs:
           rm -rf .github
           rm -rf .git
           rm -rf .github/workflows
-          git clone https://e.coding.net/${Coding_Username}/webgamedemo/webgamedemo.git coding_dir
+          git clone https://e.coding.net/extingstudio1/webgamedemo/webgamedemo.git
           cd coding_dir && mv .git ../ && cd ../ && rm -rf coding_dir
           git config --local user.email "jaxsonwang@foxmail.com"
           git config --local user.name "Akimoto"
