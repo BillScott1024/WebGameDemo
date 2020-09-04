@@ -26,10 +26,10 @@ jobs:
           git config --global user.email 'jaxsonwang@foxmail.com'
       - name: Deploy To Coding Pages
         env:
-          Coding_Project_Name: ${secrets.PROJECT_NAME}
-          Coding_Token: ${secrets.TOKEN_CODINGAPI}
-          Coding_Username: ${secrets.USERNAME_CODING} 
-          commit_message: ${github.event.head_commit.message}
+          Coding_Project_Name: ${{secrets.PROJECT_NAME}}
+          Coding_Token: ${{secrets.TOKEN_CODINGAPI}}
+          Coding_Username: ${{secrets.USERNAME_CODING}} 
+          commit_message: ${{github.event.head_commit.message}}
         run: | 
           export message=$(git log --pretty=format:"%s" -1) 
           rm CNAME
